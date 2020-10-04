@@ -1,7 +1,7 @@
 apiVersion: batch/v1beta1
 kind: CronJob
 metadata:
-  name: batch-app
+  name: simple-batch
 spec:
   schedule: "*/5 * * * *" # min hour day-of-month month day-of-week
   jobTemplate:
@@ -10,6 +10,6 @@ spec:
         spec:
           containers:
             - name: simple-batch
-              image: ${ECR_HOST}/kazusato/simple-batch-on-k8s:v1
+              image: ${ECR_HOST}/kazusato/simple-batch:v1
               imagePullPolicy: Always
           restartPolicy: OnFailure
