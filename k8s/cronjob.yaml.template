@@ -10,6 +10,22 @@ spec:
         spec:
           containers:
             - name: simple-batch
-              image: ${ECR_HOST}/kazusato/simple-batch:v2
+              image: ${ECR_HOST}/kazusato/simple-batch:v3
               imagePullPolicy: Always
+              env:
+                - name: DB_URL
+                  valueFrom:
+                    secretKeyRef:
+                      key: db-url
+                      name: db-config
+                - name: DB_USERNAME
+                  valueFrom:
+                    secretKeyRef:
+                      key: db-username
+                      name: db-config
+                - name: DB_PASSWORD
+                  valueFrom:
+                    secretKeyRef:
+                      key: db-password
+                      name: db-config
           restartPolicy: OnFailure
