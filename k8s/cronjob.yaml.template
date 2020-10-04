@@ -10,6 +10,6 @@ spec:
         spec:
           containers:
             - name: simple-batch
-              image: ${ECR_HOST}/kazusato/simple-batch:v1
+              image: ${ECR_HOST}/kazusato/simple-batch:v2
               imagePullPolicy: Always
           restartPolicy: OnFailure
